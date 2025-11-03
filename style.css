@@ -1,0 +1,434 @@
+/* --- 1. Global Styles --- */
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0C0C0C;
+    font-family: "Lato", sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+
+    /* ADD THIS LINE */
+    /* This creates a soft, dark inner shadow around the screen edge */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 2. Re-usable Components --- */
+/* --- 3. Header & Navigation --- */
+header {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* REMOVE the background-color */
+    /* background-color: #000000; */ 
+    
+    /* ADD THESE LINES */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: 'Prosto One', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+    /* ADD THIS LINE */
+    background-color: transparent; /* This fixes the button issue */
+}
+
+.btn-primary {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: #0C0C0C; /* Your dark background color */
+    transform: translateY(-3px); /* A slight "lift" on hover */
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 6%;
+    width: 100%;
+    box-sizing: border-box; /* Good practice! */
+
+    position: sticky; /* Makes it stick to the top */
+    top: 0;
+    z-index: 100; /* Ensures it stays on top of other content */
+    
+    /* The "frosted glass" effect */
+    background-color: rgba(12, 12, 12, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+
+    border-bottom: 1px solid #383838; 
+}
+
+.title-bar {
+    font-size: 40px;
+    font-family: "Prosto One", sans-serif; 
+    color: white;
+
+    /* UPDATED ANIMATION */
+    /* Format: [animation1], [animation2] */
+    animation: fadeIn 1s ease-out, 
+               depth 4s linear infinite;
+}
+
+/* (Spin animation) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes depth {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+    transition: transform 0.3s ease-out, text-shadow 0.4s ease-out;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links ul li:hover,
+.nav-links ul li:focus {
+    transform: translateY(-0.25em);
+    text-shadow: rgb(167, 167, 167) 0 5px 20px;
+}
+
+/* --- 4. Hero Content --- */
+/* This replaces .text-box. 
+  It's the content specific to the 'hero' component.
+*/
+.hero-content {
+    width: 90%;
+    color: #fff;
+    text-align: center;
+    flex-grow: 1; /* This makes it fill the vertical space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-text {
+    font-size: 16px;
+    color: #e9e8e8;
+    margin: 25px 0;
+    margin-bottom: 100px;
+    line-height: 1.7;
+}
+
+/* --- 5. Main Content --- */
+/* We target the <main> tag directly.
+  This centers all the content inside it.
+*/
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0; /* Give it some breathing room */
+}
+
+/* Our new, semantic section classes */
+.beliefs {
+    width: 90%;
+    max-width: 800px; /* Good for readability */
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.beliefs-motto {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg, #e5b8f4 0%, #2d033b 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    font-size: 20px;
+}
+
+/* (textclip animation remains the same) */
+@keyframes textclip {
+    to { background-position: 200% center; }
+}
+
+.partnership {
+    width: 90%;
+    max-width: 800px;
+    
+    /* ADD THESE LINES */
+    display: flex; /* Tells the browser to arrange children in a row */
+    justify-content: space-between; /* Puts space between the columns */
+    gap: 40px; /* (Recommended) Adds a 40px gap between columns */
+}
+
+/* This is a NEW rule for the columns you already have in your HTML */
+.partnership-column {
+    flex: 1; 
+    text-align: left; 
+    
+    /* ADD ALL THESE LINES */
+    background-color: #181818; /* A slightly lighter dark color */
+    border: 1px solid #383838;
+    border-radius: 8px; /* Rounded corners */
+    padding: 24px 30px; /* Adds internal spacing */
+    
+    /* This shadow makes it "lift" off the page */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+    /* Add a subtle hover effect for more interaction */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* NEW rule for the hover effect */
+.partnership-column:hover {
+    transform: translateY(-5px); /* Lifts the card up */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* A stronger shadow */
+}
+
+.partnership-heading {
+    font-size: 20px;
+    color: #e9e8e8;
+    margin-top: 0; /* Changed from margin: 25px 0 */
+    margin-bottom: 25px;
+}
+
+/* --- New Icon Styles --- */
+.menu-icon {
+    display: none; /* Hide icons by default */
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style the 'X' (close) icon */
+.close-icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.close-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.close-icon span:nth-child(2) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* --- 6. Contact Form --- */
+.contact-section {
+    width: 90%;
+    max-width: 800px;
+    margin-top: 60px; /* Space from the partnership section */
+    text-align: center;
+}
+
+.contact-heading {
+    font-size: 2.2rem;
+    font-family: 'Prosto One', sans-serif; /* Your brand font */
+    color: #e9e8e8;
+    margin-bottom: 15px;
+}
+
+.contact-subheading {
+    font-size: 1rem;
+    color: #a0a0a0; /* Softer gray */
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Stack the form groups */
+    gap: 20px; /* Space between form groups */
+}
+
+.form-group {
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group label {
+    display: block; /* Puts the label on its own line */
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #e9e8e8;
+    font-weight: 700;
+}
+
+/* Common style for both input and textarea */
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: 1px solid #383838;
+    background-color: #181818; /* Matches your card background */
+    color: white;
+    font-family: 'Lato', sans-serif; /* Your body font */
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't break the width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* This adds a modern "focus" glow when a user clicks in */
+.input-field:focus,
+.textarea-field:focus {
+    outline: none;
+    border-color: #e5b8f4; /* Your purple accent color! */
+    box-shadow: 0 0 10px rgba(229, 184, 244, 0.2);
+}
+
+/* We can also style the button specifically for this form */
+.contact-form .btn {
+    width: 100%; /* Make the button full-width */
+    margin-top: 10px;
+}
+
+/* --- 7. Footer --- */
+/* (Your footer styles go here) */
+footer {
+    width: 100%;
+    padding: 40px 0; /* Gives it vertical space */
+    text-align: center;
+    
+    /* A subtle top border to separate it from the main content */
+    border-top: 1px solid #383838; 
+    margin-top: 60px; /* Space above the footer */
+}
+
+.footer-text {
+    color: #a0a0a0; /* A softer gray color */
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- 8. Responsive Design (Media Queries) --- */
+
+/* ONE block for all 768px and smaller styles */
+@media (max-width: 768px) {
+
+    /* --- A) Mobile Menu Styles --- */
+
+    /* 1. Style the slide-in menu container */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        height: 100vh;
+        width: 100%;
+        background: #0C0C0C;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        z-index: 200;
+        transition: right 0.5s ease;
+    }
+
+    /* 2. This class is added by JS to show the menu */
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* 3. Style the links to stack vertically */
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links ul li {
+        padding: 20px; /* Big, tappable links */
+    }
+
+    .nav-links ul li a {
+        font-size: 1.5rem;
+    }
+
+    /* 4. Show the icons on mobile */
+    .menu-icon {
+        display: block;
+    }
+
+    .open-icon {
+        z-index: 150;
+    }
+    
+    .close-icon {
+        display: block;
+    }
+
+    /* --- B) Content & Layout Styles --- */
+
+    /* 5. Make the partnership columns stack */
+    .partnership {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 6. Make hero text smaller */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .welcome-text {
+        font-size: 1rem;
+        margin-bottom: 60px;
+    }
+
+    /* 7. Make the logo title smaller */
+    .title-bar {
+        font-size: 32px;
+    }
+}

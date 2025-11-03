@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYSTAL.</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Prosto+One&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+
+    <header class="hero" id="home-section">
+        
+    <nav class="nav-bar">
+        <div class="krystal-logo">
+            <h1 class="title-bar">
+                <strong>KRYSTAL.</strong>
+            </h1>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+        
+            <div class="menu-icon close-icon" id="close-menu">
+                <span></span> <span></span>
+            </div>
+
+            <ul>
+            <li><a href="#home-section">HOME</a></li>
+            <li><a href="#about-section">ABOUT US</a></li>
+            <li><a href="contact-section">CONTACT</a></li>
+            </ul>
+        </div>
+    
+        <div class="menu-icon open-icon" id="open-menu">
+        <span></span> <span></span>
+        <span></span>
+        </div>
+    </nav>
+
+        <div class="hero-content">
+            <h1>
+                WE ARE KRYSTAL.
+            </h1>
+            <p class="welcome-text">
+                Welcome to KRYSTAL, the record label that lives on the border of the familiar and the unheard...
+            </p>
+
+            <a href="#beliefs-section" class="btn btn-primary">Learn More</a>
+
+        </div>
+    </header>
+
+    <main>
+        <section id="beliefs-section" class="beliefs">
+            <h2 class="beliefs-motto">
+                We were never the niche, <br> but the vanguard.
+            </h2>
+        </section>
+
+        <section class="partnership" id="about-section">
+            <div class="partnership-column">
+                <h2 class="partnership-heading">
+                    <strong>For the Artists:</strong>
+                </h2>
+                <p class="partnership-description">
+                    We offer more than a contract. We provide a <strong> transparent partnership </strong> a
+                    creative home...
+                </p>
+            </div>
+            <div class="partnership-column">
+                <h2 class="partnership-heading">
+                    <strong>For the Fans:</strong>
+                </h2>
+                <p class="partnership-description">
+                    We are your portal to discovery.
+                    Our catalog is curated to surprise and satisfy...
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact-section">
+            <h2 class="contact-heading">Get In Touch</h2>
+            <p class="contact-subheading">Have a question or want to work with us? Drop a message.</p>
+            
+            <form action="#" method="POST" class="contact-form">
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="input-field" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="input-field" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="textarea-field" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="footer-text">
+            © 2025 KRYSTAL. All rights reserved.
+        </p>
+    </footer>
+    
+    <script src="script.js"> </script>
+    </body>
+</html>
